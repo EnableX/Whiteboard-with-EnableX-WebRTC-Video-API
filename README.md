@@ -1,4 +1,4 @@
-# 1-to-1 RTC: A Sample Web App with EnableX Web Toolkit
+# Whiteboard with EnableX WebRTC Video API
 
 The Sample Web App demonstrates the use of APIs for EnableX platform to carry out 1-to-1 RTC (Real Time Communication). The main motivation behind this application is to demonstrate usage of APIs and allow developers to ramp up on app by hosting on their own devices instead of directly using servers.
 
@@ -13,14 +13,12 @@ https://developer.enablex.io/release-notes/#cross-compatibility
 
 ## 1. Important!
 
-When developing a Node Application with EnxRtc.js make sure to include the updated EnxRtc.js polyfills for RTCPeerConnection and getUserMedia otherwise your application will not work in web browsers.
-
+When developing a Client Application with EnxRtc.js ( present in client/js ), make sure to replace the old EnxRtc.js with updated EnxRtc.js polyfills from https://developer.enablex.io/video-api/client-api/web-toolkit/ for RTCPeerConnection and getUserMedia. Otherwise your application will not work in web browsers.
 
 
 ## 2. Demo
 
 To get Live Demo of this Sample App, please get connected to our [Sales Team](mailto:sales@enablex.io).
-
 
 
 ## 3. Installation
@@ -30,10 +28,10 @@ To get Live Demo of this Sample App, please get connected to our [Sales Team](ma
 
 #### 3.1.1 App Id and Api Key 
 
-* Register with EnableX [https://www.enablex.io] 
-* Create your Application
-* Get your App ID and App Key delivered to your Email
-* Clone or download this Repository [https://github.com/EnableX/Sample-Web-App-1to1-RTC.git] & follow the steps further 
+* Create a free account on EnableX [https://portal.enablex.io/cpaas/trial-sign-up/]
+* Create your Project
+* Get the App ID and App Key generated against the Project
+* Clone or download this Repository `git clone https://github.com/EnableX/Whiteboard-with-EnableX-WebRTC-Video-API.git` & follow the steps further 
 
 
 #### 3.1.2 SSL Certificates
@@ -47,6 +45,30 @@ However you may use self-signed Certificate to run this application locally. The
 
 As you have Certificate or created a Self-Signed Certificate, create a directory "certs" under your Sample Web App Directory. Copy your Certificate files (.key and .crt files)  to this directory. 
 
+You can create your own certificates
+
+Mac/Linux
+  - Make a directory called certs on the root of the project
+    - `mkdir certs`
+  - Change to certs directory
+    - `cd certs`
+  - Create and Install certificates
+    - `sudo openssl req -nodes -new -x509   -keyout example.key -out example.crt   -days 365   -subj '/CN=example.com/O=My Company Name LTD./C=US'; cat example.crt > example.ca-bundle`
+  - switch to the root of the project
+    - `cd ..`
+
+Windows
+ - Make a directory called certs on the root of the project
+    - `mkdir certs`
+  - Change to certs directory
+    - `cd certs`
+  - Create and Install certificates
+    - `openssl req -nodes -new -x509   -keyout example.key -out example.crt   -days 365`   
+    - `cat example.crt > example.ca-bundle`
+  - switch to the root of the project
+    - `cd ..`
+
+In server/vcxconfig.js, update the values of `ssl_key`, `ssl_cert` and `sslCaCerts` if you want to change the locations of .crt, .key and ca-bundle files or else ignore this step.
 
 #### 3.1.3 Configure
 
@@ -56,19 +78,20 @@ vcxconfig.SERViCE = {
   name: "EnableX Sample Web App",     // Name of the Application [Change optional]
   version: "1.0.0",                   // Version [Change optional]
   path: "/v1",                        // Route [Default /v1]
-  domain: "yourdomain.com",           // FQDN of  your hosting enviornment
+  domain: "localhost",           // FQDN of  your hosting enviornment
   port  : "4443",                     // FQDN of  your hosting port. You need sudo permission if you want to use standard 443
   listen_ssl : true                   // SSL on/off key  [ Set always to "true" ]
 };
 
 vcxconfig.Certificate = {
-  ssl_key:    "../certs/yourdomain.key",  // Use the certificate ".key" [self signed or registered]
-  ssl_cert :  "../certs/yourdomain.crt",  // Use the certificate ".crt" [self signed or registered]
-  sslCaCerts :  ["../cert/yourdomain.ca-bundle"]    // Use the certificate CA[chain] [self signed or registered]
+  ssl_key:    "../certs/example.key",  // Use the certificate ".key" [self signed or registered]
+  ssl_cert:   "../certs/example.crt",  // Use the certificate ".crt" [self signed or registered]
+  sslCaCerts: ["../cert/example.ca-bundle"]    // Use the certificate CA[chain] [self signed or registered]
 };
 
 vcxconfig.SERVER_API_SERVER = {
   host: 'api.enablex.io',             // Hosted EnableX Server API Domain Name
+  port: '443',
 };
 
 vcxconfig.clientPath  = "../client";    // UI files location
@@ -85,10 +108,14 @@ Run `npm install --save` to build the project and the build artifacts will be st
 
 Run `node server.js` inside `server` folder for starting your Server. 
 
+```
+  - cd server
+  - node server.js
+```
 
 #### 3.2.2 Test 
 
-* Open a browser and go to [https://yourdomain.com:4443/](https://localhost:4443/). The browser should load the App. 
+* Open a browser and go to [https://localhost:4443/](https://localhost:4443/). The browser should load the App. 
 * Allow access to Camera and Mic as and when prompted to start your first RTC Call through EnableX
 
 

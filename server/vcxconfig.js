@@ -23,7 +23,7 @@ vcxconfig.SERViCE={
     name: "EnableX Sample Web App",                // Name of the App
     version: "1.0.0",                               // Version
     path: "/v1",                                    // EnableX Server API Version Route to access
-    domain: "yourdomain.com",                       // Domain / Sub-Domain to host this Service
+    domain: "",                       // Domain / Sub-Domain to host this Service
     port  : "",                                 // Port No. of this Service
     listen_ssl : true                               // Enable SSL. Set always to "true"
 };
@@ -33,9 +33,9 @@ vcxconfig.SERViCE={
 // SSL Certificate (Self Signed or Registered)
 
 vcxconfig.Certificate={
-    ssl_key: "",               // Path to .key file
-    ssl_cert : '',             // Path to .crt file
-    sslCaCerts : []    // Path to CA[chain]
+    ssl_key:   "../certs/example.key",               // Path to .key file
+    ssl_cert : "../certs/example.crt",             // Path to .crt file
+    sslCaCerts : ["../cert/example.ca-bundle"]    // Path to CA[chain]
 };
 
 
