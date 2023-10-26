@@ -1,26 +1,24 @@
-# One to One Video Calling Application with Whiteboard in JavaScript using EnableX Toolkit for Web 
+# Build 1-to-1 Video Calling with Whiteboard in JavaScript using EnableX Toolkit for Web
 
-This is a sample one to one video calling client application written in JavaScript that allows developers to implement video calling capabilities along with Whiteboard in their websites. The application runs on the web browsers (referred as client end point) and utilizes EnableX Web SDK to conduct an RTC session with its peers through EnableX Video Services. 
+JavaScript-Based 1-to-1 Video Calling App with Whiteboard Using EnableX Toolkit for Web 
 
-The client application performs the following tasks to facilitate an RTC session: 
+Explore this JavaScript-based 1-to-1 video calling client application, enriched with a Whiteboard feature, designed to empower developers in implementing video calling capabilities seamlessly into their websites. This web application operates within web browsers (referred to as client endpoints) and leverages the EnableX Web SDK to establish real-time communication sessions via EnableX Video Services. 
 
-* Get token from the application server 
-* Connect to the room using the token 
-* Publish audio/video streams in the room 
-* Subscribe to remote audio/video streams in the room 
-* Listen to any session related events
+The client application efficiently manages the following essential tasks for a smooth RTC (Real-Time Communication) session: 
+Token Acquisition: Obtain the necessary token from the application server. 
+Room Connection: Establish a connection to the designated room using the acquired token. 
+Audio/Video Stream Management: Publish and subscribe to audio/video streams within the room. 
+Session Event Handling: Listen to and respond to various session-related events. 
 
-This sample client application also demonstrates the following features:
+Furthermore, this sample client application showcases a host of valuable features, including: 
+Mute/Unmute Video and Audio: Control your video and audio input. 
+Session Recording: Capture and store session content. 
+Chat: Facilitate text-based communication.     
+Whiteboard: Collaborate visually in real time. 
+Screen Sharing: Share your screen for enhanced communication. 
+Disconnect: Conveniently end the session. 
 
-* Mute/Unmute video 
-* Mute/Unmute audio 
-* Session Recording 
-* Chat 
-* Whiteboard
-* Screen share 
-* Disconnect
-
-
+Empower your web applications with these capabilities, all seamlessly integrated through the EnableX Toolkit for Web. Elevate your web-based communication experiences with ease. 
 
 ## 1 Get Started
 
